@@ -4,7 +4,7 @@ Trabajo Final para la materia de Autómatay Gramáticas
 CONDICIONES PARA PRESENTAR EL PROYECTO PARA EL EXAMEN FINAL DE LA MATERIA AUTÓMATAS Y
 GRAMÁTICAS
 Para aprobar el examen final de la materia deberán presentar un proyecto. Dicho proyecto consistirá en desarrollar
-una aplicación, que permita, sobre un archivo que incluye registros de tráfico de conexiones de wifi de varios
+una aplicación, que permita, sobre un archivo que incluye registros de tráfico de conexiones de wifi de varios  
 usuarios y con distintos dispositivos a una red wifi, encontrar información útil.
 El trabajo deberá cumplir con las siguientes pautas
   1   Ser realizado en grupo de hasta 4 alumnos como máximo.
