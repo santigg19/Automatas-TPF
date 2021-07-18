@@ -1,0 +1,27 @@
+Integrantes del grupo: 
+
+    Juan Ignacio Bernard
+    Santiago Graffigna
+    Juan Martínez
+    Martín Mosqueira
+
+El proyecto deberá:
+
+- Utilizar expresiones regulares y el modulo re de Python.
+- Guardar en una lista los usuarios, para luego poder seleccionar alguno.
+- Guardar en una lista las MAC AP
+- Guardar en una lista las MAC Cliente.
+- Identificar los campos relevantes a mostrar según la aplicación a realizar.
+
+Trabajo para nuestro grupo:
+Seguimiento del tráfico de AP (Access point), para determinar cuál es el AC, que más tráfico
+(Input Octects + Output Octects) ha tenido en un período de tiempo (rango de fechas).
+
+
+
+
+Descripcion del proyecto:
+
+El proyecto consta de cuatro funciones, cada una correspondiente a la informacion solicitada.
+Se trata de leer datos de un archivo Excel con una gran cantidad de filas para luego obtener la informacion especifica que deseamos de este.
+Utilizamos la libreria Pandas ya que nos provee de un gran poder de manipulacion de datos y con una manera sencilla de utilizarla y, a su vez, una buena visualizacion de estos datos.
