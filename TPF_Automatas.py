@@ -23,7 +23,7 @@ def get_users():
 
 
 def get_MAC_AP():
-    # Nombre del archivo
+    # Nombre del archivo 
     excel_file_path = 'texto.xlsx'
     # Lo leo y lo cargo en un DataFrame
     df = pd.read_excel(excel_file_path)
