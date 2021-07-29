@@ -61,22 +61,35 @@ while True:
         break
     else:
         warnings.warn('La expresión ingresada no es válida.', stacklevel=2)
-
-# Sumar tráfico correspondiente a cada AP
-regx_trafico = re.compile(r'(?<=;)(?:[\d]*)(?=;)')
+# Encontrar posición inicial y final para la búsqueda
 with open('acts-user1.txt', 'r') as infile:
-    while True:
-        line_file = infile.readline()
-        if date_init in line_file or date_end in line_file:
-            for match in aps_mac:
-                if match in line_file:
-                    trafico_dict[match] = trafico_dict[match] + int(
-                                          regx_trafico.findall(line_file)[1])\
-                                          + int(regx_trafico.findall(line_file)
-                                                [2])
-        if len(line_file) == 0:
-            infile.close
+    for num1, line in enumerate(infile, 0):
+        if date_init in line:
+            match_start = num1
             break
+    print(match_start)
+    infile.close()
+with open('acts-user1.txt', 'r') as infile:
+    for num2, line in enumerate(infile, 0):
+        if date_end in line:
+            match_end = num2
+    print(match_end)
+    infile.close()
+# Sumar tráfico correspondiente a cada AP
+regx_trafico = re.compile(r'(?<=;)([\d]*)(?=;)')
+regx_corrupto = re.compile(r'(?<=;)\\N(?=;)')
+with open('acts-user1.txt', 'r') as infile:
+    lineas = infile.readlines()[match_start:match_end]
+    for linea in lineas:
+        if regx_corrupto.search(linea):
+            continue
+        for match in aps_mac:
+            if match in linea:
+                trafico_dict[match] = trafico_dict[match] + \
+                                    int(regx_trafico.findall
+                                        (linea)[1]) + \
+                                    int(regx_trafico.findall
+                                        (linea)[2])
 print('\n--> Tráfico de cada AP entre %s y %s:' % (date_init, date_end),
       trafico_dict)
 max_trafico = max(trafico_dict, key=trafico_dict.get)
