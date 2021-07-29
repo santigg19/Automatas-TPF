@@ -49,7 +49,7 @@ class Trafico:
     def sumar_trafico(self):
         # Determinar rango de fechas para seguimiento del tráfico
         regx_date = re.compile(
-                    r'((0?[1-9]|[12][0-9]|3[01])\/(0?[1-9]|1[012])\/\d{4})')
+                    r'(?:0?[1-9]|[12][0-9]|3[01])\/(?:0?[1-9]|1[012])\/\d{4}')
         while True:
             date_init = input('\n--> Ingrese fecha de inicio en formato'
                               ' dd/mm/yyyy: ')
@@ -95,6 +95,7 @@ class Trafico:
                                                 (linea)[1]) + \
                                             int(regx_trafico.findall
                                                 (linea)[2])
+                        break
         # Guardar en un archivo de texto el tráfico de cada AP
         with open('aps_traffic_output.txt', 'w') as outfile:
             outfile.write('-Tráfico de cada AP entre %s y %s:\n(Ordenado de'
