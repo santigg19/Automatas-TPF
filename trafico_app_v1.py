@@ -113,7 +113,7 @@ if __name__ == '__main__':
     regx_aps = re.compile(r'((?:[A-Fa-f\d]{2}-){5}[A-Fa-f\d]{2}:UM)')
     regx_clients = re.compile(r'((?:[A-Fa-f\d]{2}-){5}[A-Fa-f\d]{2}$)',
                               re.MULTILINE)
-    regx_users = re.compile(r'(?<=;)[A-Za-z-.]{1,15}(?=;)')
+    regx_users = re.compile(r'(?<=;)[A-Za-z-.]{1,30}(?=;)')
 
     # Leer archivo de texto y buscar direcciones MAC y usuarios
     with open('acts-user1.txt', 'r') as infile:
