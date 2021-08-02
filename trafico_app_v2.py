@@ -70,7 +70,7 @@ class Trafico:
                               stacklevel=3)
         d_end = datetime.strptime(date_end, '%d/%m/%Y')
         # Sumar tráfico correspondiente a cada AP
-        regx_trafico = re.compile(r'(?<=;)([\d]*)(?=;)')
+        regx_trafico = re.compile(r'(?<=;)\d*(?=;)')
         regx_corrupto = re.compile(r'(?<=;)\\N(?=;)')
         with open('acts-user1.txt', 'r') as infile:
             while True:
@@ -107,10 +107,9 @@ class Trafico:
 
 if __name__ == '__main__':
     # Definir expresiones regulares para direcciones MAC y usuarios
-    regx_aps = re.compile(r'((?:[A-Fa-f\d]{2}-){5}[A-Fa-f\d]{2}:UM)')
-    regx_clients = re.compile(r'((?:[A-Fa-f\d]{2}-){5}[A-Fa-f\d]{2}$)',
-                              re.MULTILINE)
-    regx_users = re.compile(r'(?<=;)[A-Za-z-.]{1,30}(?=;)')
+    regx_aps = re.compile(r'(?:[A-F\d]{2}-){5}[A-F\d]{2}:UM', re.I)
+    regx_clients = re.compile(r'(?:[A-F\d]{2}-){5}[A-F\d]{2}$', re.M | re.I)
+    regx_users = re.compile(r'(?<=;)[A-Z-.]{1,30}(?=;)', re.I)
 
     # Leer archivo de texto y buscar direcciones MAC y usuarios
     with open('acts-user1.txt', 'r') as infile:
